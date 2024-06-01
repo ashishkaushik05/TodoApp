@@ -1,24 +1,18 @@
 import mongoose from 'mongoose';
 
-let isConnected = false; 
+let isConnected = false;
 
-export const connectToDB = async () => {
-  mongoose.set('strictQuery', true);
-
-  if(isConnected) {
-    console.log('MongoDB is already connected');
-    return;
-  }
+export async function connectToDB() {
+  if (isConnected) return;
 
   try {
     await mongoose.connect(process.env.MONGODB_URI, {
-      dbName: "todo",
       useNewUrlParser: true,
       useUnifiedTopology: true,
-    })
+    });
     isConnected = true;
-    console.log('MongoDB connected')
   } catch (error) {
-    console.log(error);
+    console.error('Failed to connect to MongoDB', error);
+    throw new Error('Failed to connect to MongoDB');
   }
 }
