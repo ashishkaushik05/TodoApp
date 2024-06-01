@@ -1,7 +1,0 @@
-{
-    "functions": {
-      "api/todo/route.js": {
-        "maxDuration": 20
-      }
-    }
-  }
