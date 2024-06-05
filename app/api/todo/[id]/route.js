@@ -1,6 +1,8 @@
 import Todo from "@models/todo";
 import { connectToDB } from "@utils/database";
 
+export const maxDuration = 300;
+
 export const PATCH = async (request, { params }) => {
     const { id } = params;
     const { completed } = await request.json();
