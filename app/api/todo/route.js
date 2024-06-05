@@ -2,7 +2,7 @@ import Todo from "@models/todo";
 import { connectToDB } from "@utils/database";
 
 
-export const maxDuration = 300;
+export const maxDuration = 60;
 export const POST = async (request) => {
     const { creator, title, description, completed, completionDate } = await request.json();
 
